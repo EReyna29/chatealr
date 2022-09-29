@@ -1,5 +1,5 @@
 import { collection, doc, getDocs,getDoc, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore';
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../context/AuthContext';
 import {db} from '../firebase';
 
@@ -10,7 +10,11 @@ const Search = () => {
 
   const {currentUser} = useContext(AuthContext);
 
-  const handleSearch = async () =>{
+  useEffect(()=>{
+    Search()
+  },[username])
+  
+  const Search = async () =>{
     const q = query(collection(db,"users"),where("displayName","==",username));
     try{
       const querySnapshot = await getDocs(q);
@@ -24,7 +28,7 @@ const Search = () => {
   }
 
   const handleKey = (e) =>{
-    e.code==="Enter" && handleSearch()
+    e.code==="Enter" && Search()
   }
 
   const handleSelect = async () =>{

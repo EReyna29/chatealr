@@ -23,11 +23,7 @@ $darkColor: #2f2d52;
     margin: 0;
     padding: 0;
     box-sizing: content-box;
-    @include mobile{
-        html {
-            min-width: 420px ;
-        }
-    }
+    max-height: 100vh;
 }
 .formContainer{
     //background-color: #a7bcff;
@@ -176,6 +172,12 @@ $darkColor: #2f2d52;
                     align-items: center;
                     gap: .7rem;
 
+                    @include mobile{
+                        span{
+                            font-size: .7rem;
+                        }
+                    }
+
                     img{
                         background-color: #ddddf7;
                         height: 2rem;
@@ -183,6 +185,8 @@ $darkColor: #2f2d52;
                         border-radius: 50%;
                         object-fit: cover;
                     }
+
+                    
 
                     button{
                         background-color: #5d5b8d;
@@ -212,6 +216,10 @@ $darkColor: #2f2d52;
 
                         &::placeholder{
                             color: lightgray;
+                        }
+
+                        @include mobile{
+                            font-size: .6rem;
                         }
                     }
                 }
@@ -283,7 +291,7 @@ $darkColor: #2f2d52;
                     object-fit: cover;
                 }
                 @include mobile{
-                    font-size: .8remrem;
+                    font-size: .8rem;
 
                     img{
                         width: 1.6rem;
