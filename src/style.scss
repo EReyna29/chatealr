@@ -1,0 +1,500 @@
+@mixin mobile {
+    @media screen and (max-width:480px){
+        @content;
+    }
+    
+}
+@mixin tablet {
+    @media screen and (max-width:780px){
+        @content;
+    }
+    
+}
+@mixin laptop {
+    @media screen and (max-width:1200px){
+        @content;
+    }
+    
+}
+
+$darkColor: #2f2d52;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    @include mobile{
+        html {
+            min-width: 420px ;
+        }
+    }
+}
+.formContainer{
+    //background-color: #a7bcff;
+    background-image: url("./img/MARY-RAQUEL-VECINOS 126.JPG");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .formWrapper{
+        background-color: rgba(118, 118, 118, 0.162);
+        //backdrop-filter: contrast(180%);
+        backdrop-filter: blur(.3rem);
+        padding: 1.2rem 3rem;
+        border-radius: .4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items:center;
+
+        .logo{
+            color: #162d77;
+            font-weight: bold;
+            font-size: 1.7rem;
+            
+        }
+
+        .title{
+            color: #162d77;
+            font-size: 1.2rem;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            input{
+                padding: 1rem;
+                outline: none;
+                background-color: transparent;
+                border: none;
+                width: 15rem;
+                border-bottom: .1rem solid #162d77 ;
+
+                &::placeholder{
+                    color: rgb(13, 16, 74);
+                    font-size: 1rem;
+                }
+            }
+            label{
+                display: flex;
+                align-items: center;
+                
+                gap:1rem;
+                color: #ffffff;
+                font-size: 1rem;
+                cursor: pointer;
+
+                img{
+                    width: 3rem;
+                    height: 3rem;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+            button{
+                background-color: #42507f;
+                color: white;
+                padding: 1rem;
+                font-weight: bold;
+                border:.2rem solid transparent;
+                cursor:pointer;
+
+                &:hover{
+                    background-color: transparent;
+                    
+                    border:.2rem solid #42507f;
+                }
+            }
+        }
+        p{
+            color: #b9b9c3;
+            font-size: 1rem;
+            margin-top: .7rem;
+        }
+        a{
+            color: #ffffff;
+        }
+    }
+}
+
+.home{
+    background-image: url("./img/MARY-RAQUEL-VECINOS 126.JPG");
+    background-image: url("./img/100_4473.JPG");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container{
+        border:none;
+        border-radius: .8rem;
+        width: 65%;
+        height: 80%;
+        box-shadow: .1rem .2rem .3rem $darkColor;
+        display: flex;
+        overflow:hidden;
+
+        @include tablet{
+            width: 90%;
+        }
+        .sidebar{
+            flex:1;
+            border-right: .1rem solid #3e3c61;
+            
+            background-color: #3e3c61;
+            position: relative;
+            //max-height: 100%;
+            @include tablet{
+                width: 30%;
+            }
+
+
+            .navbar{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: #2f2d52;
+                height: 3rem;
+                padding: 0.7rem;
+                color:#ddddf7;
+
+
+                .logo{
+                    font-weight: bold;
+                    @include tablet{
+                        display: none;
+                    }
+                }
+                .user{
+                    display: flex;
+                    align-items: center;
+                    gap: .7rem;
+
+                    img{
+                        background-color: #ddddf7;
+                        height: 2rem;
+                        width: 2rem;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    button{
+                        background-color: #5d5b8d;
+                        color: #ddddf7;
+                        font-size: .7rem;
+                        border:none;
+                        padding: .3rem;
+                        cursor: pointer;
+                        @include tablet{
+                            position: absolute;
+                            bottom: 10px;
+                        }
+                    }
+                }
+            }
+
+            .search{
+
+                border-bottom: .1rem solid gray;
+                .searchForm{
+                    padding: .7rem;
+                    input{
+                        background-color: transparent;
+                        border: none;
+                        color: white;
+                        outline: none;
+
+                        &::placeholder{
+                            color: lightgray;
+                        }
+                    }
+                }
+            }
+            .userChat{
+                padding: .7rem;
+                display: flex;
+                align-items: center;
+                gap: .7rem;
+                color: white;
+                cursor:pointer;
+
+                &:hover{
+                    background-color: #2f2d52;
+                }
+                img{
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+                .userChatInfo{
+                    width: 100%;
+
+                    span{
+                        font-size: 1rem;
+                        font-weight: 500;
+                        @include mobile{
+                            font-size: .8rem;
+                        }
+                    }
+
+                    .infoLastMessage{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        p{
+                            font-size: .8rem;
+                            color: lightgray;
+                            @include mobile{
+                                font-size: .5rem;
+                            }
+                        }
+
+                    }
+                    
+
+                }
+            }   
+        }
+        .chat{
+            flex:2;
+            
+
+            .chatInfo{
+                height: 4.4rem;
+                background-color: #5d5b8d;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                color: lightgray;
+                padding: 0 1rem;
+                font-size: 1.2rem;
+
+                img{
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+                @include mobile{
+                    font-size: .8remrem;
+
+                    img{
+                        width: 1.6rem;
+                        height: 1.6rem;
+                    }
+                }
+                .chatIcons{
+                   display: flex;
+                   gap:.5rem;
+                   padding-right: .7rem;
+
+                    img{
+                        width: 1.2rem;
+                        height: 1.2rem;
+                    }
+                }
+
+            }
+
+            .messages{
+                background-color: #ababff53;
+                backdrop-filter: blur(10px);
+                padding: .5rem;
+                height: calc(100% - 8.9rem);
+                overflow-y: scroll;
+                @include mobile{
+                    height: calc(100% - 8.4rem);
+                }
+
+                .message{
+                    display: flex;
+                    gap:1rem;
+                    margin-bottom: 1.2rem;
+                    @include mobile{
+                        gap: .7rem;
+                        margin-bottom: .8rem;
+                    }
+                    
+                    .messageInfo{
+                        display: flex;
+                        flex-direction: column;
+                        color: rgb(0, 0, 0);
+                        font-weight: 300;
+
+                        img{
+                            width: 2rem;
+                            height: 2rem;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+                        span{
+                            font-size: smaller;
+                        }
+
+                        @include mobile{
+                            img{
+                                width: 1.6rem;
+                                height: 1.6rem;
+                            }
+                            span{
+                                font-size: .5rem;
+                            }
+                        }
+
+                        
+                    }
+
+                    .messageContent{
+                        max-width: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        gap:.5rem;
+
+                        p{
+                            color: white;
+                            background-color: $darkColor;
+                            padding: .5rem 1rem;
+                            border-radius: 0rem .4rem .4rem .4rem ;
+                            max-width: max-content;
+                        }
+                        img{
+                            width: 5rem;
+                        }
+
+                        @include mobile{
+                            gap: .4rem;
+                            p{
+                                padding: .3rem .7rem;
+                                font-size: .5rem;
+                            }
+                            
+                        }
+                    }
+
+                    &.owner{
+                        flex-direction: row-reverse;
+                        .messageContent{
+                            align-items: flex-end;
+                            p{
+                                background-color: #8da4f1;
+                                color: white;
+                                border-radius: .4rem 0rem  .4rem .4rem ;
+                            }
+                        }
+                        
+                    }
+                }
+                &::-webkit-scrollbar {
+                    -webkit-appearance: none;
+                }
+                
+                &::-webkit-scrollbar:vertical {
+                    width:.3rem;
+                    
+                }
+                
+                &::-webkit-scrollbar-button:increment {
+                    display: none;
+                }
+                &::-webkit-scrollbar-button {
+                    display: none;
+                } 
+                
+                &::-webkit-scrollbar-thumb {
+                    background-color: #79797927;
+                    border-radius: 20px;
+                    border: 1px solid transparent;
+                    
+                }
+                &::-webkit-scrollbar-thumb:hover {
+                    background-color: #797979;
+                    border-radius: 20px;
+                    border: 1px solid transparent;
+                    
+                }
+                
+                &::-webkit-scrollbar-track {
+                    border-radius: 10px;  
+                }
+            }
+
+            .input{
+                height: 3.5rem;
+                background-color: white;
+                padding: 0 .5rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                input{
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    color:#2f2d52;
+                    font-size: 1rem;
+                    padding: .2rem .2rem;
+
+                    &::placeholder{
+                        color:lightgray;
+                    }
+                    
+                }
+
+                @include mobile{
+                    height: 3rem;
+                    padding: 0 .3rem;
+
+                    input{
+                        font-size: .7rem;
+                        padding: .1rem .1rem;
+                    }
+                }
+
+                .send{
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+
+                    img{
+                        width: 1rem;
+                        height: 1rem;
+                        cursor: pointer;
+                    }
+
+                    button{
+                        border: none;
+                        
+                        padding: 0.5rem;
+                        color: white;
+                        background-color: #8da4f1;
+                        cursor: pointer;
+                    }
+
+                    @include mobile{
+                        gap:.3rem;
+    
+                        img{
+                            width: .7rem;
+                            height: .7rem;
+                        }
+
+                        button{
+                            padding: 0.3rem;
+                            font-size: .7rem;
+
+                        }
+                    }
+                }
+            }
+
+
+        }
+    }
+}
