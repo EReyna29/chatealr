@@ -12,6 +12,7 @@ const Search = () => {
 
   useEffect(()=>{
     Search()
+    // eslint-disable-next-line
   },[username])
   
   const Search = async () =>{
